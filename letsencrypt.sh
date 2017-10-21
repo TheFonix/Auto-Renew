@@ -9,7 +9,7 @@
     #Copying the Current cron to a local folder
     crontab -l > currentcron
     #Adding the additions to the cureent Cron File
-    echo "* 12 10-16/2 * * root letsencrypt renew" >> currentcron
+    echo "* 12 10-16/2 * * root service apache2 stop; sudo service nginx stop; letsencrypt renew; sudo service nginx start; sudo service apache2 start" >> currentcron
     #Inject new Cronfile
     crontab currentcron
     #Delete tmp Cronfile
